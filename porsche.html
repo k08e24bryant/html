@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+<style>
+@keyframes colorchange {
+    0%   {background-color: #333;}
+    25%  {background-color: #ff0000;}
+    50%  {background-color: #00ff00;}
+    75%  {background-color: #0000ff;}
+    100% {background-color: #333;}
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    animation-name: colorchange;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+body{
+    background-color:bisque
+}
+
+h1{ 
+    color :black;
+    margin-left : 100px;
+}
+
+.center-paragraph {
+    text-align: center;
+    margin-top: 50vh;
+    transform: translateY(-50%);
+}
+
+img {
+    width: 100%;
+    height: auto;
+    animation-name: rotation;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="header">
+<h1><center>Porsche</center></h1>
+</div>
+
+<h2>Porsche 911 GT3</h2>
+<p class="center-paragraph">
+With the 911 GT3, Porsche laid the foundation for a living legend in the summer of 1999. The enthusiastically received road-going sports car followed in the footsteps of the iconic Carrera RS models and represented the intersection between production and racing cars. It was based directly on the 911 GT3 Cup, which had celebrated its debut the previous season as the new car for the Porsche Supercup as part of the support programme for Formula One. Its type designation GT3 went back to a new class introduced in motorsport in 1994, which is still considered to be a successful concept in the GT scene right up to the present day. The spartan 911 GT3 of the 996 generation and its successors contributed significantly to its international breakthrough.
+</p>
+
+<center><img src="gt3.jpg" alt="Porsche GT3" width="400" height="248"></center>
+
+<p class="center-paragraph">
+Both the racing and road versions benefited from its unique genes and components that reflected Porsche’s immense motorsport experience. The engine is a good example: the six-cylinder naturally aspirated boxer engine, featuring a displacement of 3.6 litres, originated from the water-cooled turbo engine of the 911 GT1, which drove to a one-two victory at Le Mans in 1998. The GT1’s crankcase still incorporated the DNA of the Porsche 962 from the Group C era. In the production model, water-cooled cylinder liners and heads ensured rapid heat dissipation, while lightweight forged pistons and titanium connecting rods reduced the weight of the moving parts in the engine. The crankshaft was supplemented by a dual-mass flywheel and a racing clutch.
+</p>
+
+<center><img src="gt3old.jpg" alt="Porsche GT3 OLD"width="400" height="248"></center>
+
+</body>
