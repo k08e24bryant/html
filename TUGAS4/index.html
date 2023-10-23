@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Weather App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container">
+            <form id="weatherForm">
+                <div class="mb-3">
+                    <label for="inputkeyword" class="form-label">Nama Kota</label>
+                    <input type="text" class="form-control" id="inputkeyword" placeholder="Masukkan nama kota">
+                </div>
+                <button type="submit" class="btn btn-primary" id="buttonaddon">Submit</button>
+            </form>
+        </div>
+        <div class="result mt-4">
+            <!-- Hasil cuaca akan ditampilkan di sini -->
+        </div>
+    </div>
+
+    <script>
+        const form = document.querySelector("#weatherForm");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const inputKeyword = document.querySelector("#inputkeyword").value;
+
+            fetch(
+                    "https://api.openweathermap.org/data/2.5/weather?q=" +
+                    inputKeyword +
+                    "&appid=21e6fbb901b8a6388357f3a79661e5cb&units=metric"
+                )
+                .then(response => response.json())
+                .then(response => {
+                    let result = document.querySelector(".result");
+                    result.innerHTML = `
+                        <h2 style="margin-bottom: 15px;">${response.name}, ${response.sys.country}</h2>
+                        <h5><span class="temp">${response.main.temp} °C</span> <span class="temp">${response.weather[0].description}</span></h5>
+                        <p style="margin-bottom: 17px;">Temperatur dari ${response.main.temp_min} °C ke ${response.main.temp_max} °C</p>
+                        <h5>Kecepatan Angin: ${response.wind.speed} m/s</h5>
+                        <h5 style="margin-bottom: 17px;">Awan : ${response.clouds.all}%</h5>
+                        <h4 style="color: #012443;">Geo Koordinat: [${response.coord.lat}, ${response.coord.lon}]</h4>
+                    `;
+                })
+                .catch(error => {
+                    console.error("Error fetching data: ", error);
+                });
+        });
+    </script>
+</body>
+
+</html>
